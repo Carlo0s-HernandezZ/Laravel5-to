@@ -64,22 +64,27 @@ public function usuarioEliminar($id){
 
 public function usuarioModificar(Request $request,$id){
 
-    $resultado = DB::update("update usuario set usuario=?,password=?,tipo=? where id_usuario=?", 
+    $resultado = DB::update("update usuario set usuario=?,password=?, tipo=? where id_user=?", 
     [$request->usuario, $request->password, $request->tipo, $id]);
 
     if($resultado){
         return view("mensajes", ["msg"=>"El Diablooooooooooo loco lo has modificado"]);
+
     }else{
-        return view("usuario_modificar");
+        $datos = DB::select('select * from usuario  where id_user=?',[$id]);
+        return view('usuario_modificar',['datos'=>$datos[0],'msg'=>'No se cambio ningun campo']);
     }
 
 }//Cierre de la funcion usuario modificar
 
 public function vistaUsuarioModificar($id){
 
-    $datos = DB::select("select * from usuario where id_usuario=?",[ $id ]);
+    $datos=DB::select("select * from usuario where id_user=?",[$id]);
 
-    return view("usuario_modificar",["datos"=> $datos ]);
+
+   return view("usuario_modificar",["datos"=> $datos[0]]);
+
+   
 
 }//Cierre vistausuModificar
 

@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\DB;
 class ControlVistas extends Controller
 {
 
-    public function vistaProducto(){
+/*     public function vistaProducto(){
         $usuario = "Andres";
         return view('producto',['usuario'=>$usuario]); 
     }//Cierre de la fucnion vistaProducto
-
+ */
     public function vistaEpleado(){
 
         $datos = [

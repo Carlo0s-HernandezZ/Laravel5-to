@@ -20,6 +20,7 @@
             <th>Usuario</th>
             <th>Password</th>
             <th>Tipo</th>
+            <th colspan="2">Accion</th>
         </tr>
         
         @foreach ($datos as $dat)
@@ -27,8 +28,18 @@
             <td>{{$dat->id_user}}</td>
             <td>{{$dat->usuario}}</td>
             <td>{{$dat->password}}</td>
-            <td>{{$dat->tipo}}</td>
-            <td><a href="/modificarUsu/{{$dat->usuario}}">Modificar</a></td>
+           <td>  @if ($dat->tipo==1)
+             Empleado
+             @elseif($dat->tipo==2)
+             Cliente
+            @endif
+            </td>
+            <!-- <td>{{$dat->tipo}}</td> -->
+            <td> <button> <a href="/usuarioformModificar/{{$dat->id_user}}"
+            onclick="return confirm('Diabloooooooooo loco, ¿Estás seguro de modificar esto?')" 
+       class="btn btn-danger" style="text-decoration: none;">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> 
+            Modificar</a></button></td>
             <td>
    <button> <a href="/usuario_Eliminar/{{$dat->id_user}}" 
        onclick="return confirm('Diabloooooooooo loco, ¿Estás seguro de eliminar esto?')" 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\controlUsuarios;
 use App\Http\Controllers\ControlVistas;
+use App\Http\Controllers\controlProducto;
 use Illuminate\Support\Facades\Route;
 /*
 Route::get('/', function () {
@@ -22,7 +23,7 @@ Route::get('/Producto', function () {
 })->name("producto");
 */
 
-Route::get('/Producto', [ControlVistas::class,"vistaProducto"] )->name("producto");
+/*Route::get('/Producto', [ControlVistas::class,"vistaProducto"] )->name("producto");*/
 Route::get('/cliente', [ControlVistas::class,"vistaCliente"] )->name("cliente");
 Route::get('/empleado', [ControlVistas::class,"vistaEpleado"] )->name("empleado");
 Route::get('/inicio', [ControlVistas::class,"vistaInicio"] )->name("inicio");
@@ -35,3 +36,8 @@ Route::post('/UsuariosGuardar', [ControlUsuarios::class,"UsuarioGuardar"])->name
 Route::get('/usuario_Eliminar/{id}', [ControlUsuarios::class,"usuarioEliminar"])->name("eliminarUsu");
 Route::get('/usuarioformModificar/{id}',[controlUsuarios::class, "vistaUsuarioModificar"])->name("usuformModificar");
 Route::post('/usuariomodificar/{id}',[controlUsuarios::class, "usuarioModificar"])->name("modificarUsu");
+
+//Rutas para el crud para lo relacionado con los productos
+Route::get('/producto', [controlProducto::class,"vistaProductos"] )->name("producto");
+Route::post('/ProductoGuardar',[controlProducto::class, "ProductoGuardar"])->name("guardarProdu");
+Route::get('/productosformGuardar',[controlProducto::class,"vistaProductoGuardar"])->name("usuformGuardarP");

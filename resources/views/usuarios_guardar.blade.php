@@ -16,7 +16,7 @@ Usuario: <input type="email" name="usuario"><br>
 Password: <input type="password"  name="password"><br>
 Tipo: <select type=" "  name="tipo">
         <option value="1">Empleado</option>
-        <option value="2">Usuario</option>
+        <option value="2">Cliente</option>
 </select><br>
 <input type="submit" value="Guadar">
 </form>
