@@ -41,3 +41,6 @@ Route::post('/usuariomodificar/{id}',[controlUsuarios::class, "usuarioModificar"
 Route::get('/producto', [controlProducto::class,"vistaProductos"] )->name("producto");
 Route::post('/ProductoGuardar',[controlProducto::class, "ProductoGuardar"])->name("guardarProdu");
 Route::get('/productosformGuardar',[controlProducto::class,"vistaProductoGuardar"])->name("usuformGuardarP");
+Route::get('/producto_Eliminar/{id}',[controlProducto::class,"productoEliminar"])->name("eliminarProduct");
+Route::post('/productoModificar/{id}',[controlProducto::class,'productoModificar'])->name('moficarProduct');
+Route::get('/productoformModifcar/{id}',[controlProducto::class,"vistaProductoModificar"])->name("productformModificar");

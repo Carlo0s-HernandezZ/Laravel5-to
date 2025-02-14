@@ -33,8 +33,14 @@
             <td>{{$dat->costo}}</td>
             <td>{{$dat->stock}}</td>
             <td>{{$dat->descripcion}}</td>
-            <td><button><a href="">Modificar</a></button></td><br>
-            <td><button><a href="">Eliminar</a></button></td><br>
+            <td><button><a href="/productoformModifcar/{{$dat->id}}"
+            onclick="return confirm('Se hara modificaciones a un registro \n¿Confirma la accion?')"
+            class="btn btn-danger" style="text-decoration: none;"
+            > <span class="glyphicon-remove-circle" aria-hidden="true">Modificar</span></a></button></td><br>
+            <td><button><a href="/producto_Eliminar/{{$dat->id}}"
+            onclick="return confirm('Se eliminara un registro,\n¿Confirma la accion?')"
+            class="btn btn-danger" style="text-decoration: none;"
+            > <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>Eliminar</a></button></td><br>            
         </tr>
     
     @endforeach

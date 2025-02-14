@@ -40,4 +40,39 @@ class controlProducto extends Controller{
         }
     }//Cierre de Producto Guardar
 
+    public function productoEliminar($id){
+
+        $resultado = DB::delete('delete from productos where id = ?',[$id]);
+        if($resultado){
+            return view("mensajes", ["msg"=>"El registro ha sido eliminado"]);
+
+        }else{
+            return view("producto");
+        }
+
+    }//Cerrado de productoEliminar
+
+    public function productoModificar(Request $request,$id){
+        $resultado= DB::update("update productos set nombre=?, costo=?, stock=?, descripcion=? where id=?",
+        [$request->nombre, 
+                    $request->costo, 
+                    $request->stock, 
+                    $request->descripcion, 
+                    $id]);
+
+        if($resultado){
+            return view("mensajes", ["msg"=>"Se hara una modificacion de un registro"]);
+        }else{
+            $datos = DB::select('select * from productos where id=?',[$id]);
+            return view('producto_modificar', ['datos'=>$datos[0],'msg'=>'No se a realizado ninguna modificacion']);
+        }
+    }//Cerrado de productoModifcar
+
+
+        public function vistaProductoModificar($id){
+            $datos=DB::select('select * from productos where id=?',[$id]);
+
+            return view('producto_modificar', ['datos'=> $datos[0]]);
+        }
+
 }
