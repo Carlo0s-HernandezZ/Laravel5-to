@@ -13,6 +13,7 @@
         var tipo = document.getElementById("tipo");
         var usu =document.getElementById("usuario").value;
         var pass =document.getElementById("password").value;
+        var imag= document.getElementById("img").value
         if(tipo.value == "0"){
             alert("No has ingresado un tipo de Usuario");
             return false;
@@ -22,12 +23,17 @@
         }else if(pass == ""){
             alert("El campo contraseña no debe estar vacio");
             return false;
+        }else if(imag==""){
+            alert("El campo de imagen debe tener evidencia.");
+            return false;
         }
+
     }
 </script>
 
-<form action="/usuariomodificar/{{$datos->id_user}}" method="post" onsubmit="return valida_datos()">
+<form action="/usuariomodificar/{{$datos->id_user}}" method="post" onsubmit="return valida_datos()" enctype="multipart/form-data">
 @csrf 
+<img src="{{$datos->imgurl}}" alt="" width="20" height="20%"><br>
 Codigo: <input type="number" name="codigo" id="" value="{{$datos->id_user}}" disabled><br>
 Usuario: <input type="email" name="usuario" value="{{$datos->usuario}}" id="usuario"><br>
 Password: <input type="password"  name="password" id="password" value="{{$datos->password}}"><br>
@@ -42,6 +48,7 @@ Tipo: <select type=" "  name="tipo" id="tipo">
     
 @endif
 </select><br>
+Imagen: <input type="file" name="img" id="imagen" ><br>
 <input type="submit" value="Modificar">
 </form>
 @if (isset($msg))

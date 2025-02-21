@@ -20,6 +20,7 @@
             <th>Usuario</th>
             <th>Password</th>
             <th>Tipo</th>
+            <th>Imagen</th>
             <th colspan="2">Accion</th>
         </tr>
         
@@ -34,6 +35,7 @@
              Cliente
             @endif
             </td>
+            <td> <img src="{{$dat->imgurl}}" alt="" width="15%" height="15%">  </td>
             <!-- <td>{{$dat->tipo}}</td> -->
             <td> <button> <a href="/usuarioformModificar/{{$dat->id_user}}"
             onclick="return confirm('Diabloooooooooo loco, ¿Estás seguro de modificar esto?')" 
