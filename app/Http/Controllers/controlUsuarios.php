@@ -28,6 +28,8 @@ use PhpParser\Node\Stmt\Return_;
 
      public function UsuarioGuardar(Request $request){
 
+
+
        $file = $request->file('img');
         $nombre_imagen =$file->getClientOriginalName();
         $nombre_caperta="img/";
@@ -100,9 +102,17 @@ use PhpParser\Node\Stmt\Return_;
 public function usuarioEliminar($id){
 
     
-    
+    $datos = DB::select('select imgurl from usuario  where  id_usuario=?',[$id]);
+
+    /* var_dump($datos);  /* para ver que esta retornando  se esta recibiendo o no informacion*/
+
+    $cadena = explode("/", $datos[0]->imgurl);  //Se para por el caracter que se elija en este caso /
+        /*http://localhost:8000/img/771365_1280_1024.jpg*/
+
     $resultado = DB::delete('delete from usuario where id_user = ?', [$id]);
     if($resultado){
+
+        unlink(public_path("img/".$cadena[4])); //Elimina fisicamenta el archivo de la carpeta 
 
         return view("mensajes", ["msg"=>"El Diablooooooooooo loco lo has eliminado"]);
 
