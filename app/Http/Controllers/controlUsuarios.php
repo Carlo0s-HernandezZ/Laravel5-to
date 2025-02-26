@@ -102,7 +102,7 @@ use PhpParser\Node\Stmt\Return_;
 public function usuarioEliminar($id){
 
     
-    $datos = DB::select('select imgurl from usuario  where  id_usuario=?',[$id]);
+    $datos = DB::select('select imgurl from usuario  where  id_user=?',[$id]);
 
     /* var_dump($datos);  /* para ver que esta retornando  se esta recibiendo o no informacion*/
 
@@ -129,6 +129,10 @@ public function usuarioEliminar($id){
 
 public function usuarioModificar(Request $request,$id){
 
+    $datos = DB::select("select imgurl from usuario where id_user=?",[$id]);
+
+    $cadena = explode("/",$datos[0]->imgurl);
+
     $file = $request->file('img');
     //var_dump($file);
     
@@ -139,11 +143,13 @@ public function usuarioModificar(Request $request,$id){
     $almacenar =$request->file('img')->move($nombre_caperta,$nombre_imagen);
 
 
-    $resultado = DB::update("update usuario set usuario=?,password=?, tipo=?, imgurl=? where id_user=?", 
+    $resultado = DB::update("update usuario set usuario=?, password=?, tipo=?, imgurl=? where id_user=?", 
     [$request->usuario, $request->password, $request->tipo, $imgurl, $id]);
 
     if($resultado){
-        return view("mensajes", ["msg"=>"El Diablooooooooooo loco lo has modificado"]);
+
+            unlink(public_path("img/".$cadena[4]));
+            return view("mensajes", ["msg" => "Usuario modificado"]);
 
     }else{
         $datos = DB::select('select * from usuario  where id_user=?',[$id]);

@@ -3,6 +3,7 @@
 use App\Http\Controllers\controlUsuarios;
 use App\Http\Controllers\ControlVistas;
 use App\Http\Controllers\controlProducto;
+use App\Http\Controllers\Loginautentificar;
 use Illuminate\Support\Facades\Route;
 /*
 Route::get('/', function () {
@@ -26,7 +27,7 @@ Route::get('/Producto', function () {
 /*Route::get('/Producto', [ControlVistas::class,"vistaProducto"] )->name("producto");*/
 Route::get('/cliente', [ControlVistas::class,"vistaCliente"] )->name("cliente");
 Route::get('/empleado', [ControlVistas::class,"vistaEpleado"] )->name("empleado");
-Route::get('/inicio', [ControlVistas::class,"vistaInicio"] )->name("inicio");
+Route::get('/', [ControlVistas::class,"vistaInicio"] )->name("inicio");
 
 
 //Rutas para el crud para lo relacionado con usuarios.
@@ -44,3 +45,6 @@ Route::get('/productosformGuardar',[controlProducto::class,"vistaProductoGuardar
 Route::get('/producto_Eliminar/{id}',[controlProducto::class,"productoEliminar"])->name("eliminarProduct");
 Route::post('/productoModificar/{id}',[controlProducto::class,'productoModificar'])->name('moficarProduct');
 Route::get('/productoformModifcar/{id}',[controlProducto::class,"vistaProductoModificar"])->name("productformModificar");
+
+Route::get('/iniciosesion', [Loginautentificar::class, 'vistaLogin'])->name('iniciosesion');
+Route::post('/validaentrada',[Loginautentificar::class, 'validaEntrada'])->name('validaentrada');

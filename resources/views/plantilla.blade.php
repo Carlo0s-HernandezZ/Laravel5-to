@@ -10,11 +10,20 @@
     <ul>
 
     <li><a href="{{route('inicio')}}">Inicio</a></li>
+    @if (isset($entrar)&& $entrar == true)
+    
     <li><a href="{{route('empleado')}}">Empleado</a></li>
     <li><a href="{{route('cliente')}}">Cliente</a></li>
     <li><a href="{{route('producto')}}">Producto</a></li>
     <li><a href="{{route('usuario')}}">Usuario</a></li>
+    @endif
 
+
+    @if (isset($entrar)&& $entrar == true)
+    <li><a href="">Cerrar de sesión</a></li>
+    @else
+    <li><a href="{{route('iniciosesion')}}">Inicio de sesión</a></li>
+    @endif
     </ul>
 
     @yield('contenido')
