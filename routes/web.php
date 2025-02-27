@@ -48,3 +48,4 @@ Route::get('/productoformModifcar/{id}',[controlProducto::class,"vistaProductoMo
 
 Route::get('/iniciosesion', [Loginautentificar::class, 'vistaLogin'])->name('iniciosesion');
 Route::post('/validaentrada',[Loginautentificar::class, 'validaEntrada'])->name('validaentrada');
+//Fail
