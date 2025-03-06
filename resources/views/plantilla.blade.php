@@ -22,8 +22,14 @@
     @if (isset($entrar)&& $entrar == true)
     <li><a href="">Cerrar de sesión</a></li>
     @else
-    <li><a href="{{route('iniciosesion')}}">Inicio de sesión</a></li>
+    <li><a href="{{route('login')}}">Inicio de sesión</a></li>
     @endif
+
+    <form action="{{ url('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit"> Logout </button>
+                            </form>
+
     </ul>
 
     @yield('contenido')

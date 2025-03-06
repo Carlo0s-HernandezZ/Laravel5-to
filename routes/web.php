@@ -46,6 +46,17 @@ Route::get('/producto_Eliminar/{id}',[controlProducto::class,"productoEliminar"]
 Route::post('/productoModificar/{id}',[controlProducto::class,'productoModificar'])->name('moficarProduct');
 Route::get('/productoformModifcar/{id}',[controlProducto::class,"vistaProductoModificar"])->name("productformModificar");
 
-Route::get('/iniciosesion', [Loginautentificar::class, 'vistaLogin'])->name('iniciosesion');
-Route::post('/validaentrada',[Loginautentificar::class, 'validaEntrada'])->name('validaentrada');
+/* Route::get('/iniciosesion', [Loginautentificar::class, 'vistaLogin'])->name('iniciosesion');
+Route::post('/validaentrada',[Loginautentificar::class, 'validaEntrada'])->name('validaentrada'); */
 //Fail uerf56gf4t
+
+// Login
+Route::get('/login', [Loginautentificar::class, 'login'])->name('login');
+Route::post('/login', [Loginautentificar::class, 'authenticate'])->name('auth.authenticate');
+
+// Register
+Route::get('/register', [Loginautentificar::class, 'register'])->name('auth.register');
+Route::post('/register', [Loginautentificar::class, 'store'])->name('auth.store');
+
+// Logout
+Route::post('/logout', [Loginautentificar::class, 'logout'])->name('auth.logout');
