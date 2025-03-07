@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-//use Illuminate\support\facades\DB;
+use Illuminate\support\facades\DB;
 
 
 class Loginautentificar extends Controller
@@ -72,6 +72,11 @@ class Loginautentificar extends Controller
         $data = $request->except('confirm-password', 'password');
         $data['password'] = Hash::make($request->password);
         User::create($data);
+
+        //usammos los registros previos para registrar datos en la otra tabla de la base de datos creada por mí de usuario
+        $resultado = DB::insert("insert into usuario (usuario,password,tipo) values(?,?,?)",
+        [$request->email,$request->password,2]);
+
         return redirect('/login');
     
     }
