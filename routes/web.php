@@ -25,14 +25,15 @@ Route::get('/Producto', function () {
 */
 
 /*Route::get('/Producto', [ControlVistas::class,"vistaProducto"] )->name("producto");*/
-Route::get('/cliente', [ControlVistas::class,"vistaCliente"] )->name("cliente");
-Route::get('/empleado', [ControlVistas::class,"vistaEpleado"] )->name("empleado");
+//El middleware es el metodo para evitar que se navege por medio de los links
+Route::get('/cliente', [ControlVistas::class,"vistaCliente"] )->middleware('auth')->name("cliente");
+Route::get('/empleado', [ControlVistas::class,"vistaEpleado"] )->middleware('auth')->name("empleado");
 Route::get('/', [ControlVistas::class,"vistaInicio"] )->name("inicio");
 
 
 //Rutas para el crud para lo relacionado con usuarios.
-Route::get('/usuario', [controlUsuarios::class,"vistaUsuario"] )->name("usuario");
-Route::get('/usuariosformGuardar', [controlUsuarios::class,"vistaUsuarioGuardar"] )->name("usuformGuardar");
+Route::get('/usuario', [controlUsuarios::class,"vistaUsuario"] )->middleware('auth')->name("usuario");
+Route::get('/usuariosformGuardar', [controlUsuarios::class,"vistaUsuarioGuardar"] )->middleware('auth')->name("usuformGuardar");
 Route::post('/UsuariosGuardar', [ControlUsuarios::class,"UsuarioGuardar"])->name("guardarUsu");
 Route::get('/usuario_Eliminar/{id}', [ControlUsuarios::class,"usuarioEliminar"])->name("eliminarUsu");
 Route::get('/usuarioformModificar/{id}',[controlUsuarios::class, "vistaUsuarioModificar"])->name("usuformModificar");
