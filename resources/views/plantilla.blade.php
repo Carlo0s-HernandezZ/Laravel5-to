@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +38,7 @@
   </head>
   <body class="text-center">
 
-
+    <nav>
     <li><a href="{{route('inicio')}}">Inicio</a></li>
     <!-- Se usa el inicio se sesion generado por larvel, y reemplazamos el  que fue creado por mí -->
     @auth    
@@ -64,7 +65,7 @@
                             </form> -->
 
     </ul>
-
+  </nav>
     @yield('contenido')
     
 </body>
