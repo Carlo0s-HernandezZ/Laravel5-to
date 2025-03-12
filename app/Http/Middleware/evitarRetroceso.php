@@ -18,10 +18,12 @@ class evitarRetroceso
      */
     public function handle(Request $request, Closure $next): Response
     {
-   /*      $response = $next($request);
-        return $response->header('Cache-Control', 'nocache, no-store, max age=0, must-revalidate', true)
-        ->header('Pragam', 'no-cache')
-        ->header('Expire', 'Fri, 01 Jan 1999 00:00:00 GMT'); */
-        return $next($request);
+        $response=$next($request);
+
+        $response->headers->set('Cache-Control', 'nocache, no-store, max-age=0, must-revalidate');
+        $response->headers->set('Pragma', 'no-cache');
+        $response->headers->set('expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
+
+        return $response;
     }
 }
