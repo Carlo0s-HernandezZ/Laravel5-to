@@ -13,7 +13,7 @@
 
     <div class="form-floating">
       <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" name="email" placeholder="name@example.com">
-      <label for="email">Email address</label>
+      <label for="email">Correo Electronico</label>
       @error('email')
       <div class="invalid-feedback">
       {{ $message }}
@@ -31,7 +31,7 @@
     </div> -->
     <div class="form-floating">
       <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password">
-      <label for="password">Password</label>
+      <label for="password">Contraseña</label>
       @error('password')
       <div class="invalid-feedback">
       {{ $message }}
@@ -41,14 +41,14 @@
 
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Remember me
+        <input type="checkbox" value="remember-me"> Recordar
       </label>
     </div>
     <div style="padding-bottom: 3%;">
-        <a href="{{ route('auth.register') }}">Registrarse</a>
+        <button type="button" class="btn btn-primary"><a href="{{ route('auth.register') }}">Registrarse</a></button>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2025–2025</p>
   </form>
 </main>
 

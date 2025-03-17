@@ -1,6 +1,3 @@
-
-
-
 @extends('plantilla')
 
 @section('contenido')
@@ -10,20 +7,20 @@
 
     <h2>Empleados</h2>
     <br>
-    <form action="/" method="get">
-    Nombre <input type="text"><br>
-    Edad <input type="number"><br>
-    Hora <input type="time"><br>
-    Fecha <input type="date"><br>
-    Puesto <input type="text"><br>
-    Sueldo <input type="number"><br>
-    Email <input type="email"><br>
-    Caja <input type="hidden"><br>
-    <input type="submit" value="Enviar">
+    <form class="form-inline" action="/" method="get">
+    Nombre <input type="text" class="form-control-plaintext"><br>
+    Edad <input type="number" class="form-control-plaintext"><br>
+    Hora <input type="time" class="form-control-plaintext"><br>
+    Fecha <input type="date" class="form-control-plaintext"><br>
+    Puesto <input type="text" class="form-control-plaintext"><br>
+    Sueldo <input type="number" class="form-control-plaintext"><br>
+    Email <input type="email" class="form-control-plaintext"><br>
+    Caja <input type="hidden" class="form-control-plaintext"><br>
+    <input type="submit" value="Enviar"  class="btn btn-primary mb-2">
     </form>
 
     <br><br><br>
-    <table style="border-color: black; background-color: aquamarine; ">
+    <table class="table">
         <tr>
             <th>CODIGO</th>
             <th>NOMBRE</th>

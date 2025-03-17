@@ -10,12 +10,12 @@
 <form action="/ProductoGuardar" method="post">
     @csrf
     <!-- ID <input type="text"> <br> -->
-    Nombre <input type="text" name="nombre"> <br>
-    Costo <input type="number" name="costo"> <br>
-    Stock <input type="number" name="stock"> <br>
-    Descripcion <textarea name="descripcion" id="" cols="30" rows="5"></textarea> <br><br>
+    Nombre <input type="text"  class="form-control" name="nombre"> <br>
+    Costo <input type="number"  class="form-control" name="costo"> <br>
+    Stock <input type="number"  class="form-control" name="stock"> <br>
+    Descripcion <textarea name="descripcion"  class="form-control" id="" cols="30" rows="5"></textarea> <br><br>
 
-    <input type="submit" value="Guardar">
+    <input type="submit" value="Guardar" class="btn btn-primary">
     </form>
 
 @endsection

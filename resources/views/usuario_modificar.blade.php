@@ -34,10 +34,10 @@
 <form action="/usuariomodificar/{{$datos->id_user}}" method="post" onsubmit="return valida_datos()" enctype="multipart/form-data">
 @csrf 
 <img src="{{$datos->imgurl}}" alt="" width="20" height="20%"><br>
-Codigo: <input type="number" name="codigo" id="" value="{{$datos->id_user}}" disabled><br>
-Usuario: <input type="email" name="usuario" value="{{$datos->usuario}}" id="usuario"><br>
-Password: <input type="password"  name="password" id="password" value="{{$datos->password}}"><br>
-Tipo: <select type=" "  name="tipo" id="tipo">
+Codigo: <input type="number" name="codigo" id="" class="form-control" value="{{$datos->id_user}}" disabled><br>
+Usuario: <input type="email" name="usuario" class="form-control"  value="{{$datos->usuario}}" id="usuario"><br>
+Password: <input type="password"  name="password" id="password" class="form-control"  value="{{$datos->password}}"><br>
+Tipo: <select  type=" "  name="tipo" id="tipo">
     <option value="0" >Selcciones uno</option>
     @if ($datos->tipo=="1")
     <option value="1">Empleado</option>

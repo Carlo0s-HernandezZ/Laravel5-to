@@ -15,7 +15,7 @@
 
 <br>
 
-<table border="4">
+<table class="table">
 
     <tr>
         <th>ID</th>
@@ -34,7 +34,7 @@
             <td>{{$dat->stock}}</td>
             <td>{{$dat->descripcion}}</td>
             <td><button><a href="/productoformModifcar/{{$dat->id}}"
-            onclick="return confirm('Se hara modificaciones a un registro \n¿Confirma la accion?')"
+                class="btn btn-primary" onclick="return confirm('Se hara modificaciones a un registro \n¿Confirma la accion?')"
             class="btn btn-danger" style="text-decoration: none;"
             > <span class="glyphicon-remove-circle" aria-hidden="true">Modificar</span></a></button></td><br>
             <td><button><a href="/producto_Eliminar/{{$dat->id}}"

@@ -39,13 +39,13 @@
   <body class="text-center">
 
     <nav>
-    <li><a href="{{route('inicio')}}">Inicio</a></li>
+    <li><a href="{{route('inicio')}}" class="list-group-item list-group-item-action" style="list-style-type: none;">Inicio</a></li>
     <!-- Se usa el inicio se sesion generado por larvel, y reemplazamos el  que fue creado por mí -->
     @auth    
-    <li><a href="{{route('empleado')}}">Empleado</a></li>
-    <li><a href="{{route('cliente')}}">Cliente</a></li>
-    <li><a href="{{route('producto')}}">Producto</a></li>
-    <li><a href="{{route('usuario')}}">Usuario</a></li>
+    <li><a href="{{route('empleado')}}" class="list-group-item list-group-item-action" >Empleado</a></li>
+    <li><a href="{{route('cliente')}}" class="list-group-item list-group-item-action">Cliente</a></li>
+    <li><a href="{{route('producto')}}" class="list-group-item list-group-item-action">Producto</a></li>
+    <li><a href="{{route('usuario')}}" class="list-group-item list-group-item-action">Usuario</a></li>
     @endauth
 
     <!-- mismo caso de la linea 13 XD -->
